@@ -67,7 +67,8 @@ const styles = StyleSheet.create({
   container:{
     justifyContent:'center',
     alignItems:'center',
-    padding:150,
+    width:'100%',
+    height:'100%',
     backgroundColor:'#fff',
     marginTop:0,
   
@@ -75,7 +76,7 @@ const styles = StyleSheet.create({
  
   input:{
     height:54,
-    width:300,
+    width:'90%',
     fontSize:30,
     borderRadius:20,
     borderWidth:1,
@@ -97,19 +98,20 @@ const styles = StyleSheet.create({
   },
   inputArea:{
     flexDirection: 'row',
-    width:'100%',
     alignItems: 'center',
   },
   icon:{
-    width: '100%',
+    width: '105%',
     height: 30,
+    right:'96%',
     justifyContent: 'center',
     alignItems:'center',
 
   },
   button:{
     backgroundColor:'#fb9400',
-    width: '100%'
+    width: '70%',
+    borderRadius:90,
   }
 })
 
