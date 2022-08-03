@@ -26,8 +26,9 @@ const data ={
   }else{
     setStatus('logado');
   }
+ 
 }
-
+const [hidePass, setHidePass]= useState(true); 
   return (
   
   <View style={styles.container}>
@@ -44,14 +45,18 @@ const data ={
         placeholder="   Password"
         value={password}
         onChangeText={setPassword}
-        secureTextEntry={true}
+        secureTextEntry={hidePass}
       />
-      <TouchableOpacity style ={styles.icon}>
-        <Ionicons name="eye" color="#fb9400" size={25}/>
+      <TouchableOpacity style ={styles.icon} onPress={ () => setHidePass(!hidePass)}>
+        {hidePass ?
+          <Ionicons name="eye" color="#fb9400" size={25}/>
+          :
+          <Ionicons name="eye-off" color="#fb9400" size={25}/>
+        }
       </TouchableOpacity>
     </View>
     <View style={styles.button}>
-      <Button title="Entrar" onPress={handleLogar}/>
+      <Button title="Entrar" color="fb9400" onPress={handleLogar}/>
     </View>
     
 
@@ -76,6 +81,7 @@ const styles = StyleSheet.create({
  
   input:{
     height:54,
+    flexDirection:'row',
     width:'90%',
     fontSize:30,
     borderRadius:20,
@@ -97,11 +103,13 @@ const styles = StyleSheet.create({
 
   },
   inputArea:{
+    width:'100%',
     flexDirection: 'row',
     alignItems: 'center',
+    marginLeft:50,
   },
   icon:{
-    width: '105%',
+    width: '15%',
     height: 30,
     right:'96%',
     justifyContent: 'center',
@@ -110,8 +118,10 @@ const styles = StyleSheet.create({
   },
   button:{
     backgroundColor:'#fb9400',
-    width: '70%',
-    borderRadius:90,
+    width: '80%',
+    height:50,
+    borderRadius:20,
+    fontSize:30,
   }
 })
 
