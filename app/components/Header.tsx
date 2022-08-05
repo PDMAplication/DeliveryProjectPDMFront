@@ -25,7 +25,7 @@ const Header: React.FC<HeaderProps> = ({title, showX=true}) => {
             <BorderlessButton 
                 onPress={navigation.goBack}
             >
-                <Feather name='arrow-left' size={ 24 } color='#15b6d6'></Feather>
+                <Feather name='arrow-left' size={ 24 } color='#fb9400'></Feather>
             </BorderlessButton>
             <Text style={styles.title}> { title } </Text>
 
@@ -47,7 +47,7 @@ const Header: React.FC<HeaderProps> = ({title, showX=true}) => {
 const styles = StyleSheet.create({
     container: {
         padding: 24,
-        backgroundColor: '#9370DB',
+        backgroundColor: '#fff',
         paddingTop: 44,
         flexDirection: 'row',
         justifyContent: 'space-between',

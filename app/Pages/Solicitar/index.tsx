@@ -34,7 +34,9 @@ const data ={
       value={email}
       onChangeText={setEmail}
     />
-    <Button title="Entrar" onPress={handleLogar}/>
+    <View style={styles.button}>
+      <Button title="Entrar" color="fb9400" onPress={handleLogar}/>
+    </View>
   </View>
   
 );
@@ -44,7 +46,8 @@ const styles = StyleSheet.create({
   container:{
     justifyContent:'center',
     alignItems:'center',
-    padding:150,
+    width:'100%',
+    height:'100%',
     backgroundColor:'#fff',
     marginTop:0,
   
@@ -52,8 +55,9 @@ const styles = StyleSheet.create({
  
   input:{
     height:54,
-    width:300,
-    fontSize:20,
+    flexDirection:'row',
+    width:'90%',
+    fontSize:30,
     borderRadius:20,
     borderWidth:1,
     marginBottom:10,
@@ -67,10 +71,20 @@ const styles = StyleSheet.create({
   text:{
     fontSize:30,
   },
-  link:{
-    fontSize:25,
-    color:'#fb9400',
+  icon:{
+    width: '15%',
+    height: 30,
+    right:'96%',
+    justifyContent: 'center',
+    alignItems:'center',
 
   },
+  button:{
+    backgroundColor:'#fb9400',
+    width: '80%',
+    height:50,
+    borderRadius:20,
+    fontSize:30,
+  }
 })
 

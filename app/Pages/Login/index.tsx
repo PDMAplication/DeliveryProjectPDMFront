@@ -61,8 +61,12 @@ const [hidePass, setHidePass]= useState(true);
     
 
     <Text>{status}</Text>
-    <Text style={styles.text}>Esqueceu a senha?</Text>
-    <Link style={styles.link} to="/Solicitar/">clique aqui</Link>
+      <Text style={styles.text}>Esqueceu a senha?
+      <Link style={styles.link} to="/Solicitar/"> clique aqui</Link>
+      </Text>
+     
+
+    
   </View>
   
 );
@@ -95,10 +99,13 @@ const styles = StyleSheet.create({
     marginBottom:20,
   },
   text:{
-    fontSize:30,
+    marginBottom:20,
+    marginTop:40,
+    fontSize:20,
+    flexDirection:'row',
+    alignItems:'center'
   },
   link:{
-    fontSize:25,
     color:'#fb9400',
 
   },

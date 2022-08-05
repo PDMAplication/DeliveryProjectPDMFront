@@ -9,7 +9,6 @@ export default function App(): JSX.Element {
   return (
     <SafeAreaView style={styles.container}>
       <Routes/>
-      {<Login/>}
     </SafeAreaView>
   );
 }
@@ -17,8 +16,5 @@ export default function App(): JSX.Element {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
