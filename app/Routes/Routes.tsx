@@ -6,6 +6,8 @@ import {Login} from '../Pages/Login';
 import {Solicitar} from '../Pages/Solicitar';
 //import {Home} from '../Pages/Home/index';
 import Header from '../components/Header';
+import { Button } from 'react-native';
+import { Cadastro } from '../Pages/Cadastro';
 
 const {Navigator, Screen} = createStackNavigator();
 export default function Routes() {
@@ -24,13 +26,14 @@ export default function Routes() {
                         header: () => <Header title='' showX={false}/>
                     }}/>
                 <Screen
-                    name="Home"
-                    component={Login}
+                    name="Cadastro"
+                    component={Cadastro}
                     options={{
                         headerShown: true,
-                        header: () => <Header title='Home' showX={false}/>
+                        header: () => <Header title='Cadastro' showX={false}/>
                     }}
                 />
+                
             </Navigator>
         </NavigationContainer>
     );

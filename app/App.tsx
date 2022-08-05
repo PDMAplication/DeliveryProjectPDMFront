@@ -5,12 +5,15 @@ import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 import { Login } from './Pages/Login';
 import Routes from './Routes/Routes';
 import { Produto } from './Pages/Produto';
+import { Cadastro } from './Pages/Cadastro';
+
 
 export default function App(): JSX.Element {
   return (
     <SafeAreaView style={styles.container}>
-      <Produto/>
-      <Routes/>
+      {/*<Produto/>*/}
+      {<Routes/>}
+      {/*<Cadastro/>*/}
     </SafeAreaView>
   );
 }

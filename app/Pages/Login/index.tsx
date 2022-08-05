@@ -5,7 +5,6 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import acessaBackend from '../../api/axios';
 import { Ionicons } from '@expo/vector-icons';
 
-
 interface IResponse{
   status: string;
 }
@@ -25,10 +24,12 @@ const data ={
     setStatus('Erro: acesso negado');
   }else{
     setStatus('logado');
+    
   }
  
 }
 const [hidePass, setHidePass]= useState(true); 
+
   return (
   
   <View style={styles.container}>
@@ -58,15 +59,12 @@ const [hidePass, setHidePass]= useState(true);
     <View style={styles.button}>
       <Button title="Entrar" color="fb9400" onPress={handleLogar}/>
     </View>
-    
 
     <Text>{status}</Text>
       <Text style={styles.text}>Esqueceu a senha?
       <Link style={styles.link} to="/Solicitar/"> clique aqui</Link>
-      </Text>
-     
+    </Text>
 
-    
   </View>
   
 );
@@ -129,6 +127,10 @@ const styles = StyleSheet.create({
     height:50,
     borderRadius:20,
     fontSize:30,
-  }
+  },
 })
+
+function alert(arg0: string): void {
+  throw new Error('Function not implemented.');
+}
 
