@@ -28,6 +28,12 @@ const data ={
   
   <View style={styles.container}>
    <Image style={styles.logo} source={require('../../assets/Logo.png')} />
+   <Text style={styles.text}>
+    Esqueceu sua senha ?
+   </Text>
+   <Text style={styles.newText}>
+   Preencha o campo com seu e-mail e receba as instruções necessárias para redefinir  a sua senha.
+   </Text>
     <TextInput 
       style={styles.input}
       placeholder="   E-mail"
@@ -85,6 +91,12 @@ const styles = StyleSheet.create({
     height:50,
     borderRadius:20,
     fontSize:30,
+  },
+  newText:{
+    textAlign:'center',
+    fontSize:20,
+    marginBottom:30,
+    marginTop:20,
   }
 })
 

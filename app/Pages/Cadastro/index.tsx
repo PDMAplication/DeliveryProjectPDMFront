@@ -70,7 +70,7 @@ export const Cadastro: React.FC = () => {
         </TouchableOpacity>
         </View>
         <View style={styles.button}>
-            <Button title="Entrar" color="fb9400" onPress={handleSubmit(salvar)}/>
+            <Button title="Entrar" color="#fb9400" onPress={handleSubmit(salvar)}/>
         </View>
         <Text style={styles.text}>Ja tem cadastro?
         <Link style={styles.link} to="/Login/"> Fazer Login</Link>
@@ -135,9 +135,7 @@ const styles = StyleSheet.create({
   button:{
     backgroundColor:'#fb9400',
     width: '80%',
-    height:50,
-    borderRadius:20,
-    fontSize:30,
+    fontSize:'40%',
   },
   text:{
     marginBottom:20,

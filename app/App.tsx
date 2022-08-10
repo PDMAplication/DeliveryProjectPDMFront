@@ -6,14 +6,18 @@ import { Login } from './Pages/Login';
 import Routes from './Routes/Routes';
 import { Produto } from './Pages/Produto';
 import { Cadastro } from './Pages/Cadastro';
+import Map from './Pages/Map';
+import { Home } from './Pages/Home';
 
 
 export default function App(): JSX.Element {
   return (
     <SafeAreaView style={styles.container}>
       {/*<Produto/>*/}
-      {<Routes/>}
+      {/*<Routes/>*/}
       {/*<Cadastro/>*/}
+      <Home/>
+      {/*<Map/>*/}
     </SafeAreaView>
   );
 }

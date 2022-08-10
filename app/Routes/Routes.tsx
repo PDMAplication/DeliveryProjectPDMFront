@@ -17,7 +17,11 @@ export default function Routes() {
             screenOptions={{ headerShown: false, cardStyle: { backgroundColor: '#fff' } }}>
                 <Screen 
                     name="Login" 
-                    component={Login}/>
+                    component={Login}
+                    options={{
+                        headerShown: false,
+                    }}
+                />
                 <Screen 
                     name="Solicitar" 
                     component={Solicitar}
@@ -30,7 +34,6 @@ export default function Routes() {
                     component={Cadastro}
                     options={{
                         headerShown: true,
-                        header: () => <Header title='Cadastro' showX={false}/>
                     }}
                 />
                 
