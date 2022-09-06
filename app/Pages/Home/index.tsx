@@ -1,19 +1,31 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View,Text, StyleSheet, Alert, Image, TouchableOpacity, TextInput} from 'react-native';
-import {useForm, Controller} from'react-hook-form';
 import { Menu, MenuItem, MenuDivider } from 'react-native-material-menu';
 import { Ionicons } from '@expo/vector-icons';
-import acessaBackend from '../../api/axios';
-import Routes from '../../Routes/Routes';
+import { useCart } from '../../hooks';
 import { Login } from '../Login';
 import { NavigationEvents } from 'react-navigation';
-import { useRoutes } from 'react-router-dom';
-import { Produto } from '../Produto';
+import api from '../../api/axios';
 
 
 interface FormData{
   nome:string;
 }
+interface Product {
+  id: number;
+  title: string;
+  price: number;
+  image: string;
+}
+
+interface ProductFormatted extends Product {
+  priceFormatted: string;
+}
+
+interface CartItemsAmount {
+  [key: number]: number;
+}
+
 
 export const Home: React.FC = () => {
    
@@ -24,6 +36,29 @@ export const Home: React.FC = () => {
   const showMenu = () => setVisible(true);
 
   const [pesquisa, setPesquisa] = useState(''); 
+
+  const [products, setProducts] = useState<ProductFormatted[]>([]);
+  const { addProduct } = useCart();
+
+
+  useEffect(() => {
+    async function loadProducts() {
+      const response = await api.get<Product[]>('/products');
+      const receivedProducts = response.data;
+      const formattedProducts = receivedProducts.map(product => ({
+        ...product,
+      } as ProductFormatted))
+
+      setProducts(formattedProducts)
+    }
+
+    loadProducts();
+  }, []);
+
+  async function handleAddProduct(id: number) {
+    await addProduct(id);
+  }
+
 
   return (
     <View style={styles.Container}>
@@ -55,6 +90,27 @@ export const Home: React.FC = () => {
             <TouchableOpacity style ={styles.icon} >
                 <Ionicons name="search" color="#fb9400" size={25}/>
             </TouchableOpacity>
+        </View>
+        <View >
+          {products.map(product => (
+            <li key={product.id}>
+              <img src={product.image} alt={product.title} />
+              <strong>{product.title}</strong>
+              <span>{product.priceFormatted}</span>
+              <button
+                type="button"
+                data-testid="add-product-button"
+                onClick={() => handleAddProduct(product.id)}
+              >
+                <div data-testid="cart-product-quantity">
+                  <Ionicons size={16} color="#FFF" />
+                  {cartItemsAmount[product.id] || 0}
+                </div>
+
+                <span>ADICIONAR AO CARRINHO</span>
+              </button>
+            </li>
+          ))}
         </View>
     </View>
 
@@ -130,5 +186,8 @@ const styles = StyleSheet.create({
     left:20,
     fontSize:30,
     marginEnd:"50%"
+  },
+  ProductList:{
+    
   }
 });
