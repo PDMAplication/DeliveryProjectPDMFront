@@ -6,6 +6,7 @@ import { useCart } from '../../hooks';
 import { Login } from '../Login';
 import { NavigationEvents } from 'react-navigation';
 import api from '../../api/axios';
+import CarouselCards from '../../components/Carousel';
 
 
 interface FormData{
@@ -91,6 +92,9 @@ export const Home: React.FC = () => {
                 <Ionicons name="search" color="#fb9400" size={25}/>
             </TouchableOpacity>
         </View>
+        <View>
+          <CarouselCards></CarouselCards>
+        </View>
         <View >
           {products.map(product => (
             <li key={product.id}>
@@ -104,7 +108,6 @@ export const Home: React.FC = () => {
               >
                 <div data-testid="cart-product-quantity">
                   <Ionicons size={16} color="#FFF" />
-                  {cartItemsAmount[product.id] || 0}
                 </div>
 
                 <span>ADICIONAR AO CARRINHO</span>
@@ -123,7 +126,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#fff',
     marginStart:2,
-    marginTop:"5%",
+    marginTop:"20%",
     width:'100%'
   },
   input:{
