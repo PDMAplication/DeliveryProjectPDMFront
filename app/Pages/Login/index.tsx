@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     width:'100%',
     height:'100%',
     backgroundColor:'#fff',
-    marginTop:0,
+    marginTop:20,
   
   },
  
@@ -89,6 +89,7 @@ const styles = StyleSheet.create({
     borderRadius:20,
     borderWidth:1,
     marginBottom:10,
+    marginTop:50,
     backgroundColor:'#fff',
   },
   logo:{

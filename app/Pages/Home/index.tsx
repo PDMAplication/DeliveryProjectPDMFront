@@ -23,9 +23,14 @@ export const Home: React.FC = () => {
   const [pesquisa, setPesquisa] = useState('');  
   return (
     <View style={styles.Container}>
+      <Text style ={styles.textoInit} >Seja Bem-Vindo</Text>
        <Menu style={styles.menu}
         visible={visible}
-        anchor={<Ionicons name="menu" onPress={showMenu} color="#fb9400" size={25}/>}
+        anchor={
+          <TouchableOpacity style ={styles.iconMenu} >
+            <Ionicons name="menu" onPress={showMenu} color="#fb9400" size={25}/>
+          </TouchableOpacity>
+      }
         onRequestClose={hideMenu}
       >
         <MenuItem onPress={hideMenu}>Menu item 1</MenuItem>
@@ -56,6 +61,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#fff',
     marginStart:2,
+    marginTop:"5%",
     width:'100%'
   },
   input:{
@@ -72,7 +78,7 @@ const styles = StyleSheet.create({
     width:'100%',
     flexDirection: 'row',
     alignItems: 'center',
-    marginLeft:10,
+    marginLeft:60,
   },
   icon:{
     width: '15%',
@@ -81,6 +87,14 @@ const styles = StyleSheet.create({
     flexDirection:'row-reverse',
     justifyContent: 'center',
     alignItems:'center',
+
+  },
+  iconMenu:{
+    width: '105%',
+    height: 50,
+    marginHorizontal:"1000%",
+    flexDirection:'row',
+    marginBottom:"80%",
 
   },
   button:{
@@ -97,8 +111,7 @@ const styles = StyleSheet.create({
   },
   menu:{
     flexDirection:'row',
-    marginBottom:20,
-    padding:80,
+    marginBottom:100,
     width:"13%",
     height:80,
     left:'80%'
@@ -107,4 +120,8 @@ const styles = StyleSheet.create({
     color:'#fb9400',
 
   },
+  textoInit:{
+    fontSize:40,
+    marginEnd:"50%"
+  }
 });

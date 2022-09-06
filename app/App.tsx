@@ -16,7 +16,7 @@ export default function App(): JSX.Element {
       {/*<Produto/>*/}
       {/*<Routes/>*/}
       {/*<Cadastro/>*/}
-      <Home/>
+      {<Home/>}
       {/*<Map/>*/}
     </SafeAreaView>
   );
