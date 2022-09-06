@@ -4,8 +4,11 @@ import {useForm, Controller} from'react-hook-form';
 import { Menu, MenuItem, MenuDivider } from 'react-native-material-menu';
 import { Ionicons } from '@expo/vector-icons';
 import acessaBackend from '../../api/axios';
-import { Link } from '@react-navigation/native';
-import { Input } from 'react-native-elements';
+import Routes from '../../Routes/Routes';
+import { Login } from '../Login';
+import { NavigationEvents } from 'react-navigation';
+import { useRoutes } from 'react-router-dom';
+import { Produto } from '../Produto';
 
 
 interface FormData{
@@ -20,7 +23,8 @@ export const Home: React.FC = () => {
 
   const showMenu = () => setVisible(true);
 
-  const [pesquisa, setPesquisa] = useState('');  
+  const [pesquisa, setPesquisa] = useState(''); 
+
   return (
     <View style={styles.Container}>
       <Text style ={styles.textoInit} >Seja Bem-Vindo</Text>
@@ -33,11 +37,13 @@ export const Home: React.FC = () => {
       }
         onRequestClose={hideMenu}
       >
-        <MenuItem onPress={hideMenu}>Menu item 1</MenuItem>
-        <MenuItem onPress={hideMenu}>Menu item 2</MenuItem>
-        <MenuItem disabled>Disabled item</MenuItem>
+        <MenuItem onPress={hideMenu}><Ionicons name="md-fast-food-outline" size={25}/> Cardapio</MenuItem>
+        <MenuItem onPress={hideMenu}><Ionicons name="basket-outline" size={25}/> Sacola</MenuItem>
+        <MenuItem onPress={hideMenu}><Ionicons name="heart-outline" size={25}/> Sacola</MenuItem>
+        <MenuItem onPress={hideMenu}><Ionicons name="reader-outline" size={25}/> Sacola</MenuItem>
+        <MenuItem onPress={hideMenu}><Ionicons name="settings-outline" size={25}/> Sacola</MenuItem>
         <MenuDivider />
-        <MenuItem onPress={hideMenu}>Menu item 4</MenuItem>
+        <MenuItem disabled><Ionicons name="exit-outline" size={25}/> Retorne</MenuItem>
       </Menu>
         <View style={styles.inputArea}>
             <TextInput 
@@ -66,7 +72,7 @@ const styles = StyleSheet.create({
   },
   input:{
     height:54,
-    width:'100%',
+    width:'80%',
     fontSize:20,
     borderRadius:20,
     borderWidth:1,
@@ -90,11 +96,11 @@ const styles = StyleSheet.create({
 
   },
   iconMenu:{
-    width: '105%',
-    height: 50,
-    marginHorizontal:"1000%",
+    width: '15%',
+    marginLeft:"80%",
+    marginHorizontal:"10%",
     flexDirection:'row',
-    marginBottom:"80%",
+    marginBottom:"8%",
 
   },
   button:{
@@ -111,17 +117,18 @@ const styles = StyleSheet.create({
   },
   menu:{
     flexDirection:'row',
-    marginBottom:100,
-    width:"13%",
-    height:80,
-    left:'80%'
+    width:"100%",
+    height:"80%",
   },
   link:{
     color:'#fb9400',
 
   },
   textoInit:{
-    fontSize:40,
+    marginTop:"10%",
+    top:30,
+    left:20,
+    fontSize:30,
     marginEnd:"50%"
   }
 });
