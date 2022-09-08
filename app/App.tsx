@@ -9,6 +9,7 @@ import { Cadastro } from './Pages/Cadastro';
 import Map from './Pages/Map';
 import { Home } from './Pages/Home';
 import { Sacola } from './Pages/Sacola';
+import Pedidos from './Pages/Pedidos';
 
 
 export default function App(): JSX.Element {
@@ -18,7 +19,8 @@ export default function App(): JSX.Element {
       {/*<Routes/>*/}
       {/*<Cadastro/>*/}
       {/* {<Home/>} */}
-      {<Sacola/>}
+      {/* {<Sacola/>} */}
+      {<Pedidos/>}
       {/*<Map/>*/}
     </SafeAreaView>
   );

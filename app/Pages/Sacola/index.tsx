@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import { TouchableOpacity, View,StyleSheet, Text, Image } from 'react-native';
 import { MaterialIcons, Ionicons, Feather } from '@expo/vector-icons';
-import { ProductImage } from '../Produto';
-import { black } from 'react-native-paper/lib/typescript/styles/colors';
-import { borderWidth } from 'polished';
 import {AddOrRemoveItem} from '../Produto'
-import { CardStyleInterpolators } from '@react-navigation/stack';
+
 export const Sacola = () =>{
 
     
@@ -54,7 +51,7 @@ export const Sacola = () =>{
            </View>
 
 
-           <TouchableOpacity style={styles.buttonAddCart} >
+           <TouchableOpacity style={styles.buttonContinue} >
                    <Text style={{color:'white', fontSize:20}}>Continuar</Text>
             </TouchableOpacity>
 
@@ -64,10 +61,6 @@ export const Sacola = () =>{
 }
 
 
-export const countItens = () =>{
-  const [count, setCount] = useState(1)
-
-}
 const styles = StyleSheet.create({
     container:{
       padding:5,
@@ -87,20 +80,13 @@ const styles = StyleSheet.create({
     viewItens:{
      display:'flex',
     },
-    menuProduct:{
-      marginTop:10,
-      alignItems:'center',
-      padding:5,
-      justifyContent:'space-between',
-      flexDirection:'row'
-    },
     imageView:{
       display:'flex',
       flexDirection:'row',
       justifyContent:'space-between',
       alignItems:'center'
     },
-    buttonAddCart: {
+    buttonContinue: {
       alignSelf:'center',
       alignItems: "center",
       backgroundColor: "orange",
@@ -108,18 +94,5 @@ const styles = StyleSheet.create({
       color:'white',
       width:400
     },
-    buttonAddItem:{
-      backgroundColor:'orange',
-      padding:5
-    },
-    buttonRemoveItem:{
-      backgroundColor:'#a2a5a9aa', 
-      padding:5
-    },
-    priceInformation:{
-      flexDirection:'row', alignItems:'center',
-      marginBottom:85, 
-      justifyContent:'space-between'
-    }
   });
   
