@@ -10,7 +10,7 @@ import Map from './Pages/Map';
 import { Home } from './Pages/Home';
 import { Sacola } from './Pages/Sacola';
 import Pedidos from './Pages/Pedidos';
-
+import { Perfil } from './Pages/Perfil';
 
 export default function App(): JSX.Element {
   return (
@@ -19,8 +19,9 @@ export default function App(): JSX.Element {
       {/*<Routes/>*/}
       {/*<Cadastro/>*/}
       {/* {<Home/>} */}
+      {<Perfil/>}
       {/* {<Sacola/>} */}
-      {<Pedidos/>}
+      {/* {<Pedidos/>} */}
       {/*<Map/>*/}
     </SafeAreaView>
   );

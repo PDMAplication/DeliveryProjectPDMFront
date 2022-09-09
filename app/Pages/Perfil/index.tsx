@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   TouchableOpacity,
   View,
@@ -15,7 +15,42 @@ import {
   FontAwesome5,
 } from "@expo/vector-icons";
 
+import * as ImagePicker from 'expo-image-picker'
+
 export const Perfil = () => {
+
+  const [hasGalleryPermission, setHasGalleryPermission] = useState(null)
+  const [image, setImage] = useState(null)
+  
+  useEffect(()=>{
+    (async()=>{
+      const galleryStatus = await ImagePicker.requestMediaLibraryPermissionsAsync()
+      setHasGalleryPermission(galleryStatus.status==='granted')
+    })()
+  },[])
+
+  const pickImage = async () =>{
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes:ImagePicker.MediaTypeOptions.Images,
+      allowsEditing:true,
+      aspect:[4,3],
+      quality:1,
+    }) 
+    console.log(result)
+
+    // if(!result.cancelled){
+    //   setImage(result.uri)
+    // }
+
+    if(result.cancelled===false){
+      setImage(result.uri)
+    }
+  }
+
+    if(hasGalleryPermission===false){
+      return <Text>Sem acesso ao armazenamento</Text>
+    }
+
   return (
     <View style={styles.container}>
       <TouchableOpacity style={{ padding: 5, width: 30, marginTop: 20 }}>
@@ -24,21 +59,15 @@ export const Perfil = () => {
 
       <View style={styles.perfilSection}>
         <Text style={{ fontSize: 30, alignSelf: "center" }}>Perfil</Text>
-        <Entypo
-          style={{ alignSelf: "center", padding: 6 }}
-          name="user"
-          size={50}
-          color="black"
-        />
+        {image && <Image source={{uri:image}} style={{height:100,width:100, alignSelf:'center',borderRadius:100}} />}
       </View>
 
       <View>
         <TextInput style={styles.input} placeholder=" Nome Usuário" />
         <TextInput style={styles.input} placeholder=" Email" />
         <TextInput style={styles.input} placeholder=" Nova senha" />
-        <TextInput style={styles.input} placeholder=" Upload de imagem" />
 
-        <TouchableOpacity style={styles.uploadButton}>
+        <TouchableOpacity onPress={()=>pickImage()}  style={styles.uploadButton}>
           <FontAwesome5 name="file-upload" size={24} color="black" />
           <Text style={{ color: "white" }}>Escolher imagem</Text>
         </TouchableOpacity>
@@ -60,6 +89,7 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   perfilSection: {
+    padding:5,
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
