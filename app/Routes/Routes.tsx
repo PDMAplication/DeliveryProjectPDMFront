@@ -1,4 +1,4 @@
-import React from 'react';
+//import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack'
 
@@ -10,11 +10,9 @@ import { Button } from 'react-native';
 import { Cadastro } from '../Pages/Cadastro';
 
 const {Navigator, Screen} = createStackNavigator();
-export default function Routes() {
+export default function StackRoutes() {
     return (
-        <NavigationContainer>
-            <Navigator 
-            screenOptions={{ headerShown: false, cardStyle: { backgroundColor: '#fff' } }}>
+            <Navigator screenOptions={{ headerShown: false, cardStyle: { backgroundColor: '#fff' } }}>
                 <Screen 
                     name="Login" 
                     component={Login}
@@ -38,6 +36,5 @@ export default function Routes() {
                 />
                 
             </Navigator>
-        </NavigationContainer>
     );
 }

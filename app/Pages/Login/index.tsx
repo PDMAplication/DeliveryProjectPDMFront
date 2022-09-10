@@ -61,11 +61,17 @@ const [hidePass, setHidePass]= useState(true);
     </View>
 
     <Text>{status}</Text>
-      <Text style={styles.text}>Esqueceu a senha?
-      <Link style={styles.link} to="/Solicitar/"> clique aqui</Link>
+      <Text style={styles.text}>Esqueceu sua senha?
+      <Link style={styles.link} to="/Cadastro/"> clique aqui</Link>
     </Text>
+    <Text style={{fontSize:20,marginBottom:15,}}>Ou cadastre-se abaixo</Text>
+      <Text style={styles.buttonCadastro}>
+        <Link style={styles.link} to="/Cadastro/"> Realizar Cadastro</Link>
+     </Text>
 
   </View>
+
+ 
   
 );
 }
@@ -80,7 +86,16 @@ const styles = StyleSheet.create({
     marginTop:20,
   
   },
- 
+  buttonCadastro:{
+    display:'flex',
+    borderWidth:2, 
+    borderColor:'orange', 
+    borderRadius:2,
+    fontSize:25,
+    width:300, 
+    textAlign:'center',
+    alignItems:'center'
+},
   input:{
     height:54,
     flexDirection:'row',
@@ -106,7 +121,6 @@ const styles = StyleSheet.create({
   },
   link:{
     color:'#fb9400',
-
   },
   inputArea:{
     width:'100%',
