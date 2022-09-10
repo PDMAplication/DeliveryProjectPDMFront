@@ -93,7 +93,7 @@ export const Home: React.FC = () => {
             </TouchableOpacity>
         </View>
         <View>
-          <CarouselCards></CarouselCards>
+          
         </View>
         <View >
           {products.map(product => (

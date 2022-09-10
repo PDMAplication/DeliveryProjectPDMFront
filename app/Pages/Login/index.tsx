@@ -1,9 +1,12 @@
-import { Link } from '@react-navigation/native';
-import React, { useState } from 'react';
+import { Link, useNavigation } from '@react-navigation/native';
+import React, { Component, useState } from 'react';
 import { Button, TextInput, View,StyleSheet, Text, Image } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import acessaBackend from '../../api/axios';
 import { Ionicons } from '@expo/vector-icons';
+import StackRoutes from '../../Routes/Routes';
+import { Home } from '../Home';
+import { createStackNavigator } from '@react-navigation/stack';
 
 interface IResponse{
   status: string;
@@ -17,6 +20,8 @@ const data ={
   email,
   password
 }
+const navigation = useNavigation();
+
 
   const response = await acessaBackend.post('loginsimples',data);
   const {status} = response.data as IResponse;
@@ -24,7 +29,7 @@ const data ={
     setStatus('Erro: acesso negado');
   }else{
     setStatus('logado');
-    
+    navigation.navigate(Home)
   }
  
 }
@@ -62,7 +67,7 @@ const [hidePass, setHidePass]= useState(true);
 
     <Text>{status}</Text>
       <Text style={styles.text}>Esqueceu sua senha?
-      <Link style={styles.link} to="/Cadastro/"> clique aqui</Link>
+      <Link style={styles.link} to="/Solicitar/"> clique aqui</Link>
     </Text>
     <Text style={{fontSize:20,marginBottom:15,}}>Ou cadastre-se abaixo</Text>
       <Text style={styles.buttonCadastro}>
@@ -105,6 +110,7 @@ const styles = StyleSheet.create({
     borderWidth:1,
     marginBottom:10,
     marginTop:50,
+    textAlign:'center',
     backgroundColor:'#fff',
   },
   logo:{
@@ -130,7 +136,7 @@ const styles = StyleSheet.create({
   },
   icon:{
     width: '15%',
-    height: 30,
+    height: 20,
     right:'96%',
     justifyContent: 'center',
     alignItems:'center',
@@ -146,6 +152,10 @@ const styles = StyleSheet.create({
 })
 
 function alert(arg0: string): void {
+  throw new Error('Function not implemented.');
+}
+
+function logar(email: string, password: string) {
   throw new Error('Function not implemented.');
 }
 

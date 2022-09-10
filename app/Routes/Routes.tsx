@@ -8,6 +8,7 @@ import {Solicitar} from '../Pages/Solicitar';
 import Header from '../components/Header';
 import { Button } from 'react-native';
 import { Cadastro } from '../Pages/Cadastro';
+import { Home } from '../Pages/Home';
 
 const {Navigator, Screen} = createStackNavigator();
 export default function StackRoutes() {
@@ -30,6 +31,13 @@ export default function StackRoutes() {
                 <Screen
                     name="Cadastro"
                     component={Cadastro}
+                    options={{
+                        headerShown: true,
+                    }}
+                />
+                 <Screen
+                    name="Home"
+                    component={Home}
                     options={{
                         headerShown: true,
                     }}
