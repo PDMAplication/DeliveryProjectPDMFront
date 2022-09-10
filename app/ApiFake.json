@@ -1,0 +1,41 @@
+{
+
+  "Login":[
+    {
+    "email":"test@gmail.com",
+    "senha":"12345678"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "title": "X presença",
+      "price": 12.99,
+      "image": "https://conteudo.imguol.com.br/c/entretenimento/4f/2022/05/03/hamburguer-1651610679144_v2_4x3.jpg"
+    },
+   {
+      "id": 2,
+      "title": "X presença",
+      "price": 12.99,
+      "image": "https://assets.unileversolutions.com/recipes-v2/230446.jpg"
+    },
+    {
+      "id": 3,
+      "title": "X presença",
+      "price": 12.99,
+      "image": "https://viagemegastronomia.cnnbrasil.com.br/wp-content/uploads/sites/5/2022/05/origem-do-hambuguer-cnn4.jpg?w=876&h=484&crop=1"
+    },
+    {
+      "id": 4,
+      "title": "Dupla presença",
+      "price": 32.99,
+      "image": "https://diario-de-casa.shoptime.com.br/wp-content/uploads/2022/05/shutterstock_1938676873-770x513.jpg"
+    },
+    {
+      "id": 5,
+      "title": "X presença",
+      "price": 12.99,
+      "image": "https://conteudo.imguol.com.br/c/entretenimento/4f/2022/05/03/hamburguer-1651610679144_v2_4x3.jpg"
+    },
+  ]
+}
