@@ -16,8 +16,11 @@ import {
 } from "@expo/vector-icons";
 
 import * as ImagePicker from 'expo-image-picker'
-
+import { useAuth } from "../../Context/Auth";
 export const Perfil = () => {
+
+ 
+  const{signOut, authData} = useAuth()
 
   const [hasGalleryPermission, setHasGalleryPermission] = useState(null)
   const [image, setImage] = useState(null)
@@ -53,12 +56,13 @@ export const Perfil = () => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={{ padding: 5, width: 30, marginTop: 20 }}>
+
+      {/* <TouchableOpacity style={{ padding: 5, width: 30, marginTop: 20 }}>
         <Feather name="arrow-left" size={24} color="orange" />
-      </TouchableOpacity>
+      </TouchableOpacity> */}
 
       <View style={styles.perfilSection}>
-        <Text style={{ fontSize: 30, alignSelf: "center" }}>Perfil</Text>
+        <Text style={{ fontSize: 30, alignSelf: "center" }}>{authData.email}</Text>
         {image && <Image source={{uri:image}} style={{height:100,width:100, alignSelf:'center',borderRadius:100}} />}
       </View>
 
@@ -77,6 +81,14 @@ export const Perfil = () => {
             style={{ color: "white", fontSize: 15, justifyContent: "center" }}
           >
             Editar
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={signOut} style={styles.buttonSignout}>
+          <Text
+            style={{ color: "white", fontSize: 15, justifyContent: "center" }}
+          >
+            Sair
           </Text>
         </TouchableOpacity>
       </View>
@@ -126,4 +138,14 @@ const styles = StyleSheet.create({
     width: "90%",
     alignSelf: "center",
   },
+  buttonSignout:{
+    alignItems: "center",
+    backgroundColor: "red",
+    padding: 15,
+    marginTop: 15,
+    color: "white",
+    width: "50%",
+    alignSelf: "center",
+    borderRadius:5
+  }
 });

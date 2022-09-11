@@ -30,11 +30,10 @@ export default function App() {
          
        <View style={styles.top}>
         
-          <TouchableOpacity style={ {padding:5,margin:3,left:0}}>
+          {/* <TouchableOpacity style={ {padding:5,margin:3,left:0}}>
               <Feather name="arrow-left" size={24} color="orange" />
-          </TouchableOpacity>
+          </TouchableOpacity> */}
 
-          <Text style={{ color: 'black', fontSize:20, marginLeft:100 }}>Meus Pedidos</Text>
 
        </View>
 
@@ -127,6 +126,6 @@ const styles = StyleSheet.create({
       padding: 15,
       color:'white',
       width:400,
-      bottom:-280
+      bottom:-200
   },
 });

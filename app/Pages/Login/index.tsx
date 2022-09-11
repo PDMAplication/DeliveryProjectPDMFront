@@ -4,9 +4,11 @@ import { Button, TextInput, View,StyleSheet, Text, Image } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import acessaBackend from '../../api/axios';
 import { Ionicons } from '@expo/vector-icons';
-import StackRoutes from '../../Routes/Routes';
+//import StackRoutes from '../../Routes/Routes';
 import { Home } from '../Home';
 import { createStackNavigator } from '@react-navigation/stack';
+import { useAuth } from '../../Context/Auth';
+
 
 interface IResponse{
   status: string;
@@ -29,11 +31,14 @@ const navigation = useNavigation();
     setStatus('Erro: acesso negado');
   }else{
     setStatus('logado');
-    navigation.navigate(Home)
+    //navigation.navigate(Home)
   }
  
 }
 const [hidePass, setHidePass]= useState(true); 
+
+
+const {signIn} = useAuth()
 
   return (
   
@@ -62,7 +67,7 @@ const [hidePass, setHidePass]= useState(true);
       </TouchableOpacity>
     </View>
     <View style={styles.button}>
-      <Button title="Entrar" color="fb9400" onPress={handleLogar}/>
+      <Button title="Entrar" color="fb9400" onPress={()=>signIn(email,password)}/>
     </View>
 
     <Text>{status}</Text>

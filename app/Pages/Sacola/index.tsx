@@ -11,9 +11,9 @@ export const Sacola = () =>{
        
           <View style={styles.top}>
 
-          <TouchableOpacity style={{backgroundColor:'#a2a5a9aa', padding:5,margin:3}}>
+          {/* <TouchableOpacity style={{backgroundColor:'#a2a5a9aa', padding:5,margin:3}}>
               <Feather name="arrow-left" size={24} color="white" />
-          </TouchableOpacity>
+          </TouchableOpacity> */}
 
              <Text style={{ color: 'black', fontSize:20 }}>Sacola</Text>
           </View>

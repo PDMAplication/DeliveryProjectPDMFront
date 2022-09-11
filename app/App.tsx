@@ -11,18 +11,24 @@ import { Home } from './Pages/Home';
 import { Sacola } from './Pages/Sacola';
 import Pedidos from './Pages/Pedidos';
 import { Perfil } from './Pages/Perfil';
-import { Routes } from './Routes';
+//import { Routes } from './Routes';
+import {StackRoutes} from './Routes/Routes'
+import { AuthProvider } from './Context/Auth';
+
 export default function App(): JSX.Element {
   return (
     <SafeAreaView style={styles.container}>
       {/*<Produto/>*/}
-       {<Routes/>}
+       {/* {<Routes/>} */}
       {/*<Cadastro/>*/}
       {/* {<Home/>} */}
       {/* {<Perfil/>} */}
       {/* {<Sacola/>} */}
       {/* {<Pedidos/>} */}
       {/*<Map/>*/}
+      <AuthProvider>
+        <StackRoutes/>
+      </AuthProvider>
     </SafeAreaView>
   );
 }

@@ -9,40 +9,20 @@ import Header from '../components/Header';
 import { Button } from 'react-native';
 import { Cadastro } from '../Pages/Cadastro';
 import { Home } from '../Pages/Home';
+import { AppStack } from './AppStack';
+import {AuthStack} from './AuthStack'
+import { AuthContext, useAuth } from '../Context/Auth';
 
-const {Navigator, Screen} = createStackNavigator();
-export default function StackRoutes() {
+
+export function StackRoutes() {
+
+    const {authData} = useAuth()
+    
     return (
-            <Navigator screenOptions={{ headerShown: false, cardStyle: { backgroundColor: '#fff' } }}>
-                <Screen 
-                    name="Login" 
-                    component={Login}
-                    options={{
-                        headerShown: false,
-                    }}
-                />
-                <Screen 
-                    name="Solicitar" 
-                    component={Solicitar}
-                    options={{
-                        headerShown: true,
-                        header: () => <Header title='' showX={false}/>
-                    }}/>
-                <Screen
-                    name="Cadastro"
-                    component={Cadastro}
-                    options={{
-                        headerShown: true,
-                    }}
-                />
-                 <Screen
-                    name="Home"
-                    component={Home}
-                    options={{
-                        headerShown: true,
-                    }}
-                />
-                
-            </Navigator>
+
+           <NavigationContainer>
+            {authData ? <AppStack/>:<AuthStack/>}
+           </NavigationContainer>
+            
     );
 }
