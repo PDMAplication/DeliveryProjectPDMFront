@@ -31,7 +31,6 @@ const navigation = useNavigation();
     setStatus('Erro: acesso negado');
   }else{
     setStatus('logado');
-    //navigation.navigate(Home)
   }
  
 }

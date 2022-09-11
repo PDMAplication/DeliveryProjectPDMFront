@@ -1,8 +1,5 @@
-import {
-  MdDelete,
-  MdAddCircleOutline,
-  MdRemoveCircleOutline,
-} from 'react-icons/md';
+import React from 'react';
+import { Ionicons } from '@expo/vector-icons';
 import { useCart } from '../../hooks/index';
 import { formatPrice } from '../../utils/format';
 
@@ -82,7 +79,7 @@ const Cart = (): JSX.Element => {
                     disabled={product.amount <= 1}
                     onClick={() => handleProductDecrement(product)}
                   >
-                    <MdRemoveCircleOutline size={20} />
+                    <Ionicons name="close-circle-outline" size={25}/>
                   </button>
                   <input
                     type="text"
@@ -95,7 +92,7 @@ const Cart = (): JSX.Element => {
                     data-testid="increment-product"
                     onClick={() => handleProductIncrement(product)}
                   >
-                    <MdAddCircleOutline size={20} />
+                    <Ionicons name="add-circle-outline" size={25}/>
                   </button>
                 </div>
               </td>
@@ -108,7 +105,7 @@ const Cart = (): JSX.Element => {
                   data-testid="remove-product"
                   onClick={() => handleRemoveProduct(product.id)}
                 >
-                  <MdDelete size={20} />
+                  <Ionicons name="close-circle-sharp" size={25}/>
                 </button>
               </td>
             </tr>
