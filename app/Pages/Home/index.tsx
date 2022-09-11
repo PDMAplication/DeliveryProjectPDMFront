@@ -85,7 +85,7 @@ export const Home: React.FC = () => {
          <MenuItem onPress={()=>navigation.navigate('Pedidos'as never, {} as never)}><Ionicons name="reader-outline" size={25}/> Meus Pedidos</MenuItem>
          <MenuItem onPress={hideMenu}><Ionicons name="settings-outline" size={25}/> Configurações</MenuItem>
          <MenuDivider />
-         <MenuItem onPress={()=>navigation.navigate('Login'as never, {} as never)}><Ionicons name="exit-outline" size={25}/> Sair</MenuItem>
+         <MenuItem onPress={()=>navigation.navigate('Home'as never, {} as never)}><Ionicons name="exit-outline" size={25}/> Sair</MenuItem>
        </Menu>
          <View style={styles.inputArea}>
              <TextInput 

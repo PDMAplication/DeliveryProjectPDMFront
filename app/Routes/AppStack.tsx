@@ -15,7 +15,6 @@ export function AppStack(){
   return(
     <Stack.Navigator>
       <Stack.Screen name="Home" component={Home}/>
-       <Stack.Screen name="Login" component={Login}/> 
       <Stack.Screen name="Produtos" component={Produto}/>
       <Stack.Screen name="Perfil" component={Perfil}/>
       <Stack.Screen name="Sacola" component={Sacola}/>
