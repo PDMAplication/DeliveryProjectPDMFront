@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {View,Text, StyleSheet, Alert, Image, TouchableOpacity, TextInput, Button} from 'react-native';
 import { Menu, MenuItem, MenuDivider } from 'react-native-material-menu';
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, Feather } from '@expo/vector-icons';
 import { useCart } from '../../hooks';
 import { Login } from '../Login';
 import { NavigationEvents } from 'react-navigation';
@@ -44,19 +44,19 @@ export const Home: React.FC = () => {
    const { addProduct } = useCart();
 
 
-   useEffect(() => {
-     async function loadProducts() {
-       const response = await api.get<Product[]>('/products');
-       const receivedProducts = response.data;
-       const formattedProducts = receivedProducts.map(product => ({
-         ...product,
-       } as ProductFormatted))
+  //  useEffect(() => {
+  //    async function loadProducts() {
+  //      const response = await api.get<Product[]>('/products');
+  //      const receivedProducts = response.data;
+  //      const formattedProducts = receivedProducts.map(product => ({
+  //        ...product,
+  //      } as ProductFormatted))
 
-       setProducts(formattedProducts)
-     }
+  //      setProducts(formattedProducts)
+  //    }
 
-     loadProducts();
-   }, []);
+  //    loadProducts();
+  //  }, []);
 
    async function handleAddProduct(id: number) {
      await addProduct(id);
@@ -81,7 +81,7 @@ export const Home: React.FC = () => {
          <MenuItem onPress={()=>navigation.navigate('Perfil'as never, {} as never)}><Ionicons name="person" size={25}/> Perfil</MenuItem>
          <MenuItem onPress={()=>navigation.navigate('Produtos'as never, {} as never)}><Ionicons name="md-fast-food-outline" size={25}/> Cardapio</MenuItem>
          <MenuItem onPress={()=>navigation.navigate('Sacola'as never, {} as never)}><Ionicons name="basket-outline" size={25}/> Sacola</MenuItem>
-         <MenuItem onPress={hideMenu}><Ionicons name="heart-outline" size={25}/> Favoritos</MenuItem>
+         <MenuItem onPress={()=>navigation.navigate('Map'as never, {} as never)}><Feather name="map-pin" size={24} color="black" /> Mapa</MenuItem>
          <MenuItem onPress={()=>navigation.navigate('Pedidos'as never, {} as never)}><Ionicons name="reader-outline" size={25}/> Meus Pedidos</MenuItem>
          <MenuItem onPress={hideMenu}><Ionicons name="settings-outline" size={25}/> Configurações</MenuItem>
          <MenuDivider />

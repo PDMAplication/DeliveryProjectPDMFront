@@ -1,22 +1,24 @@
 import React, { useState } from 'react';
 import { TouchableOpacity, View,StyleSheet, Text, Image } from 'react-native';
 import { MaterialIcons, Ionicons, Feather } from '@expo/vector-icons';
-
+import { useNavigation } from '@react-navigation/native';
 
  export const Produto = () => {
 
-
+   const navigation=useNavigation()
+   
     return (
       <View style={styles.container}>
 
         <View style={styles.top}>
 
          <View style={styles.menuProduct}>
-          <TouchableOpacity style={{backgroundColor:'#a2a5a9aa', padding:5}}>
+
+          <TouchableOpacity  onPress={()=>navigation.navigate('Home'as never, {} as never)} style={{backgroundColor:'#a2a5a9aa', padding:5}}>
               <Feather name="arrow-left" size={24} color="white" />
           </TouchableOpacity>
 
-            <Text style={{ color: 'white', fontSize:20 }}>Produto</Text>
+            <Text style={{ color: 'white', fontSize:20}}>Produto</Text>
 
             <TouchableOpacity style={{backgroundColor:'#a2a5a9aa', padding:5}}>
               <MaterialIcons name="favorite-border" size={24} color="white"/>
@@ -125,7 +127,7 @@ const styles = StyleSheet.create({
     alignItems:'center',
     padding:5,
     justifyContent:'space-between',
-    flexDirection:'row'
+    flexDirection:'row',
   },
   imageView:{
     marginTop:30,
